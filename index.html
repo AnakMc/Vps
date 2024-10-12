@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Store - Jual VPS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77BFC7 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        nav {
+            float: right;
+            margin-top: 10px;
+        }
+        nav a {
+            margin: 0 10px;
+        }
+        .slider-container {
+            display: flex;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+        .plan {
+            min-width: 200px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-right: 20px;
+        }
+        .plan h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .plan p {
+            font-size: 18px;
+        }
+        .plan .price {
+            font-size: 28px;
+            color: #77BFC7;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            background: #77BFC7;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Fall Store - Jual VPS</h1>
+            <nav>
+                <a href="#plans">Paket VPS</a>
+                <a href="#benefits">Benefit</a>
+                <a href="#antiddos">Anti DDoS</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="plans">
+            <div class="slider-container">
+                <div class="slider" id="slider">
+                    <div class="plan">
+                        <h3>Vultr VPS 1GB 1Core</h3>
+                        <p class="price">Rp 20K</p>
+                        <p>Ram: 1GB, Core: 1</p>
+                    </div>
+                    <div class="plan">
+                        <h3>Vultr VPS 2GB 2Core</h3>
+                        <p class="price">Rp 25K</p>
+                        <p>Ram: 2GB, Core: 2</p>
+                    </div>
+                    <div class="plan">
+                        <h3>Vultr VPS 4GB 2Core</h3>
+                        <p class="price">Rp 35K</p>
+                        <p>Ram: 4GB, Core: 2</p>
+                    </div>
+                    <div class="plan">
+                        <h3>Vultr VPS 8GB 4Core</h3>
+                        <p class="price">Rp 47K</p>
+                        <p>Ram: 8GB, Core: 4</p>
+                    </div>
+                    <div class="plan">
+                        <h3>Vultr VPS 16GB 8Core</h3>
+                        <p class="price">Rp 60K</p>
+                        <p>Ram: 16GB, Core: 8</p>
+                    </div>
+                    <div class="plan">
+                        <h3>Vultr VPS 24GB 12Core</h3>
+                        <p class="price">Rp 75K</p>
+                        <p>Ram: 24GB, Core: 12</p>
+                    </div>
+                    <div class="plan">
+                        <h3>Vultr VPS 32GB 8Core</h3>
+                        <p class="price">Rp 100K</p>
+                        <p>Ram: 32GB, Core: 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="button" id="prevBtn" onclick="slidePrev()" disabled>&lt; Prev</button>
+                <button class="button" id="nextBtn" onclick="slideNext()">Next &gt;</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        const maxIndex = slider.children.length - 1;
+
+        function slideNext() {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateSlider();
+            }
+        }
+
+        function slidePrev() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        }
+
+        function updateSlider() {
+            const slideWidth = slider.children[0].offsetWidth + 20; // 20 is margin-right
+            slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+            // Update button states
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === maxIndex;
+        }
+    </script>
+</body>
+</html>
