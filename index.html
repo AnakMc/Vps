@@ -85,7 +85,13 @@
             background: #ccc;
             cursor: not-allowed;
         }
+        .captcha-container {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
+    <!-- Tambahkan script reCAPTCHA di sini -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header>
@@ -103,6 +109,7 @@
         <section id="plans">
             <div class="slider-container">
                 <div class="slider" id="slider">
+                    <!-- VPS Plans -->
                     <div class="plan">
                         <h3>Vultr VPS 1GB 1Core</h3>
                         <p class="price">Rp 20K</p>
@@ -143,6 +150,10 @@
             <div class="buttons">
                 <button class="button" id="prevBtn" onclick="slidePrev()" disabled>&lt; Prev</button>
                 <button class="button" id="nextBtn" onclick="slideNext()">Next &gt;</button>
+            </div>
+            <div class="captcha-container">
+                <!-- reCAPTCHA Verification -->
+                <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
             </div>
         </section>
     </div>
